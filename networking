@@ -1,0 +1,205 @@
+##  NETTWORKING
+
+1.IP Address --
+  IP Address LIKE Address  OF YOUR HOME FOR COURIER
+  THE INTERNET NEED YOUR IP TO SEND DATA TO YOUR DEVICE
+
+2.PUBLIC IP VS PRIVATE IP 
+- PRIVATE-- USED INSIDE YOUR HOME EG. MY LAPTOP MIGHT HAVE SOMETHING
+            YOUR ROOM NO = PRIVATE IP
+PUBLIC- 
+--      THE ADDRES VISIBLE ON THE INTERNET
+BUILDING ADDRES= PUBLIC IP
+
+3. SUBNET---
+
+        imagine a company have a 500 LAPTOP
+
+        Instead of putting all 500 in one area, they divide them:
+
+            HR Department
+            Finance Department
+            IT Department 
+
+            These divisions are called subnets.
+
+            in aws there is two subnet---
+            public subbnet, private subnet
+
+4.DNS---INTERNET PHONEBOOK
+
+        Humans remember:
+           --- amazon.com  google.com
+
+        Computer Understand:
+           --- 142.250.183.46
+
+        DNS  converts :
+
+        google.com ---> 142.250.183.46
+
+5.  HTTP vs HTTPS   
+        --used when opening website 
+
+        HTTP---data is not encrypted
+vs
+        HTTPS--- Data is encrypted.
+        https://example.com
+
+        Data is encrypted.
+
+        Used by:
+
+        Gmail
+        Amazon
+        Banking sites
+
+        Always prefer HTTPS.
+
+6. TCP vs UDP--
+            First understand: What is a packet?
+
+            When you send data over the internet, it is broken into small pieces called packets.
+           
+            These packets travel through the internet and reach the destination.
+
+    TCP--(Transmission Control Protocol)
+
+        TCP is reliable.
+
+        Before sending data, TCP checks:
+
+        Is the receiver ready?
+        Did all packets arrive?
+        Did any packet get lost?
+        Should I resend a lost packet?
+
+            Where TCP is used
+               --Banking
+               --Website login
+               --Email
+               --File downloads
+               --SSH (port 22)
+               --HTTPS (port 443)
+
+               --Because losing data here is unacceptable.
+
+    UDP--UDP (User Datagram Protocol)
+
+            UDP is fast.
+
+            It does NOT check:
+
+            Did packets arrive?
+            Were packets lost?
+            Should I resend?
+
+            It just sends data.
+
+            Where UDP is used
+                ----Video calls
+                ----Online gaming
+                ----Live streaming
+                ----DNS queries
+                ----
+                ----Because speed is more important than perfect delivery.
+
+7. Ports = Doors of a House 🚪
+
+                --One IP can run many services.
+
+                --Each service uses a port.
+
+                --Common ports:
+
+                --Port	Service
+                --22	SSH
+                --80	HTTP
+                --443	HTTPS
+                --3306	MySQL
+                --5432	PostgreSQL
+
+
+
+
+8. Load Balancer = Traffic Police 🚦
+
+               --Suppose:
+
+               --10000 users
+
+               --visit your website.
+
+               --One server may crash.
+
+               --So we use:
+
+               --        Users
+               --        |
+               --    Load Balancer
+               --    /   |   \
+               --Server1 Server2 Server3
+
+               --Load Balancer distributes traffic.
+
+               --Benefits:
+
+               --No server overload
+               --Better performance
+               --High availability
+
+9. NAT Gateway
+
+                    Imagine a private office.
+
+                    Employees can go outside.
+
+                    But outsiders cannot enter directly.
+
+                    That's NAT.
+
+                    AWS example:
+
+                    Public Subnet
+                        |
+                    NAT Gateway
+                        |
+                    Private Subnet
+
+                    Private servers can:
+
+                    Download updates
+                    Access internet
+
+                    But internet cannot directly access them.
+10. Routing = Road Map 🛣️
+
+                    --When data travels, it needs directions.
+
+                    --Example:
+
+                    --Delhi → Jaipur → Jodhpur
+
+                    --Similarly, routers decide:
+
+                    --Computer A
+                    --    ↓
+                    --Router
+                    --    ↓
+                    --Internet
+                    --    ↓
+                    --Server
+
+                    --Routing tells packets which path to follow.
+
+                    --In AWS you'll see:
+
+                    --Route Tables
+
+                    --Example:
+
+                    --0.0.0.0/0 → Internet Gateway
+
+                    --Means:
+                    
+                    --"Send all internet traffic through the Internet Gateway."
